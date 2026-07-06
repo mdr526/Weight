@@ -19,11 +19,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*:before,*:after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+button,input,select,textarea,optgroup{font-family:inherit}
 :root{--bg1:#0a0a16;--bg2:#170d1f;--glass:rgba(255,255,255,.07);--glass2:rgba(255,255,255,.115);--gborder:rgba(255,255,255,.14);--gborder2:rgba(255,255,255,.22);--t1:#eef2fb;--t2:#aab4cc;--t3:#73809e;--blue:#4da3ff;--cyan:#39d5dd;--green:#2ee6a6;--orange:#ffb84d;--red:#ff5c7a;--purple:#b48bff;--teal:#39d5dd;--yellow:#ffd23f;--accent-grad:linear-gradient(135deg,#4da3ff 0,#39d5dd 100%);--r:18px;--safe:env(safe-area-inset-bottom,16px);--mono:SF Mono,Fira Code,Courier New,monospace;--numf:'Vazirmatn',Tahoma,Arial,sans-serif;
   --page-bg:radial-gradient(circle at 8% 6%, rgba(150,95,255,.32) 0%, transparent 45%),radial-gradient(circle at 62% 26%, rgba(45,180,160,.22) 0%, transparent 42%),radial-gradient(circle at 94% 74%, rgba(45,95,215,.30) 0%, transparent 48%),linear-gradient(160deg, #0a0a16 0%, #180d20 50%, #160a14 100%);
   --safe-pad:calc(var(--safe) + 18px);
   --nav-glass-bg:rgba(26,20,34,.40);--nav-glass-border:rgba(255,255,255,.18);--nav-active-bg:rgba(255,255,255,.16);--nav-icon:#c8cee4;--nav-icon-on:#fff;
   --nav-shadow:0 16px 40px rgba(0,0,0,.5),0 2px 10px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.08);
+  --fade-bg:10,10,22;
   color-scheme:dark;
 }
 html[data-theme="light"]{
@@ -31,6 +33,7 @@ html[data-theme="light"]{
   --page-bg:radial-gradient(circle at 10% 8%, rgba(110,186,255,.60) 0%, transparent 45%),radial-gradient(circle at 88% 16%, rgba(150,221,255,.55) 0%, transparent 42%),radial-gradient(circle at 50% 102%, rgba(195,236,255,.65) 0%, transparent 55%),linear-gradient(160deg, #eef8ff 0%, #dcedfa 50%, #cfe7fb 100%);
   --nav-glass-bg:rgba(255,255,255,.40);--nav-glass-border:rgba(255,255,255,.7);--nav-active-bg:rgba(255,255,255,.62);--nav-icon:#3a5a82;--nav-icon-on:#0f2238;
   --nav-shadow:0 16px 36px rgba(40,110,180,.22),0 2px 10px rgba(40,110,180,.12),inset 0 1px 0 rgba(255,255,255,.6);
+  --fade-bg:234,246,255;
   color-scheme:light;
 }
 html,body{min-height:100vh;color:var(--t1)}
@@ -144,6 +147,21 @@ input[type=range].weight-slider::-moz-range-thumb{width:26px;height:26px;border-
 .wheel-item{height:36px;display:flex;align-items:center;justify-content:center;scroll-snap-align:center;font-family:var(--numf);font-size:16px;font-weight:700;color:var(--t3);transition:color .15s,font-size .15s;cursor:pointer}
 .wheel-item.mid{color:var(--blue);font-size:19px}
 .wheel-frame{position:absolute;top:50%;left:0;right:0;height:36px;transform:translateY(-50%);border-top:1.5px solid var(--gborder2);border-bottom:1.5px solid var(--gborder2);pointer-events:none;background:color-mix(in srgb, var(--blue) 6%, transparent)}
+/* ── انتخاب ساعت به سبک برنامهٔ یادآور (چرخ عمودی با محو شدگی لبه‌ها) ── */
+.tw-wrap{display:flex;justify-content:center;align-items:center;gap:4px;padding:6px 0 4px;position:relative}
+.tw-col{position:relative;width:84px;height:220px;overflow:hidden}
+.tw-col .tw-fade-top,.tw-col .tw-fade-bottom{position:absolute;left:0;right:0;height:72px;z-index:2;pointer-events:none}
+.tw-col .tw-fade-top{top:0;background:linear-gradient(to bottom, rgba(var(--fade-bg),.95), rgba(var(--fade-bg),0))}
+.tw-col .tw-fade-bottom{bottom:0;background:linear-gradient(to top, rgba(var(--fade-bg),.95), rgba(var(--fade-bg),0))}
+.tw-center-line{position:absolute;top:50%;height:44px;transform:translateY(-50%);left:calc(50% - 94px);right:calc(50% - 94px);background:color-mix(in srgb, var(--blue) 14%, transparent);border:1px solid color-mix(in srgb, var(--blue) 35%, transparent);border-radius:14px;z-index:1;pointer-events:none}
+.tw-scroll{height:100%;overflow-y:scroll;scroll-snap-type:y mandatory;-ms-overflow-style:none;scrollbar-width:none;position:relative;z-index:2}
+.tw-scroll::-webkit-scrollbar{display:none}
+.tw-item{height:44px;display:flex;align-items:center;justify-content:center;scroll-snap-align:center;font-size:19px;color:var(--t3);font-weight:600;font-variant-numeric:tabular-nums;font-family:'Vazirmatn',Tahoma,sans-serif;cursor:pointer}
+.tw-item.center{color:var(--t1);font-weight:800;font-size:24px}
+.tw-sep{display:flex;align-items:center;font-size:24px;font-weight:800;color:var(--t2);margin:0 2px}
+.time-preview{text-align:center;font-size:13px;color:var(--t3);font-weight:600;margin-top:8px;font-family:'Vazirmatn',Tahoma,sans-serif}
+.tw-label{text-align:center;font-size:11px;font-weight:700;color:var(--t3);margin-top:4px;letter-spacing:.4px}
+
 .sheet-btns{display:flex;gap:10px;margin-top:18px}
 .sheet-cancel{flex:1;background:var(--glass);border:1px solid var(--gborder2);color:var(--t2);border-radius:999px;padding:13px;font-size:14.5px;font-weight:600;cursor:pointer;-webkit-appearance:none}
 .sheet-ok{flex:2;background:var(--accent-grad);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:999px;padding:13px;font-size:14.5px;font-weight:800;cursor:pointer;-webkit-appearance:none;box-shadow:0 8px 22px color-mix(in srgb, var(--blue) 30%, transparent)}
@@ -303,15 +321,25 @@ input[type=range].weight-slider::-moz-range-thumb{width:26px;height:26px;border-
   </div>
 </div>
 
-<!-- ───── ورق انتخاب ساعت (چرخان) ───── -->
+<!-- ───── ورق انتخاب ساعت (دقیقاً به سبک برنامهٔ یادآور) ───── -->
 <div class="sheet-overlay" id="timeSheet">
   <div class="sheet-card">
     <div class="sheet-handle"></div>
     <div class="sheet-title">انتخاب ساعت ثبت</div>
-    <div class="wheel-row">
-      <div class="wheel-col" id="wheelHour"></div>
-      <div class="wheel-col" id="wheelMin"></div>
+    <div class="tw-wrap">
+      <div class="tw-center-line"></div>
+      <div class="tw-col">
+        <div class="tw-fade-top"></div><div class="tw-scroll" id="minWheel"></div><div class="tw-fade-bottom"></div>
+      </div>
+      <div class="tw-sep">:</div>
+      <div class="tw-col">
+        <div class="tw-fade-top"></div><div class="tw-scroll" id="hourWheel"></div><div class="tw-fade-bottom"></div>
+      </div>
     </div>
+    <div style="display:flex;justify-content:center;gap:60px;margin-top:2px;">
+      <div class="tw-label">دقیقه</div><div class="tw-label">ساعت</div>
+    </div>
+    <div class="time-preview" id="timePreview">۰۰:۰۰</div>
     <div class="sheet-btns">
       <button class="sheet-cancel" onclick="closeTimeSheet()">انصراف</button>
       <button class="sheet-ok" onclick="confirmTimeSheet()">تایید</button>
@@ -484,18 +512,24 @@ function refreshCustomRangeLabels(){
   e.textContent = customEnd ? jalaliShort(customEnd[0],customEnd[1],customEnd[2]) : '—';
 }
 
-/* ═══════════════ چرخ‌های انتخاب (Wheel Picker) ═══════════════ */
+/* ═══════════════ چرخ‌های انتخاب تاریخ (Wheel Picker) ═══════════════ */
 function buildWheel(container, items, selectedIndex, onSettle){
   container.innerHTML = '<div class="wheel-pad"></div>' + items.map(t=>`<div class="wheel-item">${t}</div>`).join('') + '<div class="wheel-pad"></div>';
   const itemH = 36;
   let scrollTimer=null;
+  // «ready» تا وقتی true نشود، رویداد اسکرول نادیده گرفته می‌شود؛ این از یک اشکال مهم جلوگیری می‌کند:
+  // قرار دادن برنامه‌ایِ موقعیت اولیهٔ اسکرول (پایین‌تر) خودش یک رویداد scroll تولید می‌کند که اگر
+  // نادیده گرفته نشود، تایمر onSettle را زودهنگام اجرا کرده و می‌تواند مقدار روز/ماه/سال را
+  // به‌اشتباه بازنویسی کند (علت اصلی «انتخاب نادقیق تاریخ»).
+  let ready=false;
   function setMid(){
     const idx = Math.round(container.scrollTop / itemH);
     [...container.querySelectorAll('.wheel-item')].forEach((el,i)=> el.classList.toggle('mid', i===idx));
     return idx;
   }
-  container.onscroll = ()=>{
+  function handleScroll(){
     setMid();
+    if(!ready) return;
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(()=>{
       const idx = Math.max(0, Math.min(items.length-1, Math.round(container.scrollTop / itemH)));
@@ -503,7 +537,8 @@ function buildWheel(container, items, selectedIndex, onSettle){
       setMid();
       if(onSettle) onSettle(idx);
     }, 120);
-  };
+  }
+  container.onscroll = handleScroll;
   // با لمس/کلیک روی هر گزینه، همان گزینه به مرکز می‌چرخد و انتخاب می‌شود
   [...container.querySelectorAll('.wheel-item')].forEach((el,idx)=>{
     el.addEventListener('click', ()=>{
@@ -513,10 +548,61 @@ function buildWheel(container, items, selectedIndex, onSettle){
       scrollTimer = setTimeout(()=>{ setMid(); if(onSettle) onSettle(idx); }, 220);
     });
   });
-  // موقعیت ابتدایی
-  requestAnimationFrame(()=>{ container.scrollTop = selectedIndex*itemH; setMid(); });
+  // موقعیت ابتدایی — در صورت امکان بلافاصله (بدون تأخیر یک فریم) تا هیچ حالت بینابینیِ
+  // ناهماهنگ بین DOM و مقدار انتخاب‌شده وجود نداشته باشد
+  function place(){
+    container.scrollTop = selectedIndex*itemH;
+    setMid();
+    requestAnimationFrame(()=>{ ready = true; });
+  }
+  if(container.clientHeight>0){ place(); } else { requestAnimationFrame(place); }
   container._getIndex = ()=> Math.max(0, Math.min(items.length-1, Math.round(container.scrollTop / itemH)));
 }
+
+/* ═══════════════ چرخ‌های انتخاب ساعت (دقیقاً به سبک برنامهٔ یادآور) ═══════════════ */
+const TW_ITEM_H = 44;
+function buildTWheel(c, count){
+  let h = `<div style="height:${TW_ITEM_H*2}px"></div>`;
+  for(let i=0;i<count;i++) h += `<div class="tw-item" data-v="${i}">${toFa(jp2(i))}</div>`;
+  h += `<div style="height:${TW_ITEM_H*2}px"></div>`;
+  c.innerHTML = h;
+}
+function getTWheelVal(c){ return Math.round(c.scrollTop/TW_ITEM_H); }
+function setTWheelVal(c, v, smooth){ c.scrollTo({top: v*TW_ITEM_H, behavior: smooth?'smooth':'auto'}); }
+function highlightTWCenter(c){
+  const idx = getTWheelVal(c);
+  c.querySelectorAll('.tw-item').forEach(el=> el.classList.toggle('center', parseInt(el.dataset.v,10)===idx));
+  return idx;
+}
+function makeTWheelPair(hW, mW, preview){
+  buildTWheel(hW,24); buildTWheel(mW,60);
+  function upd(){
+    const h=highlightTWCenter(hW), m=highlightTWCenter(mW);
+    if(preview) preview.textContent = `${toFa(jp2(h))}:${toFa(jp2(m))}`;
+    return {h,m};
+  }
+  let timer;
+  function onScroll(){
+    upd();
+    clearTimeout(timer);
+    timer = setTimeout(()=>{
+      setTWheelVal(hW, Math.max(0,Math.min(23, Math.round(hW.scrollTop/TW_ITEM_H))), true);
+      setTWheelVal(mW, Math.max(0,Math.min(59, Math.round(mW.scrollTop/TW_ITEM_H))), true);
+      upd();
+    }, 120);
+  }
+  hW.addEventListener('scroll', onScroll);
+  mW.addEventListener('scroll', onScroll);
+  hW.addEventListener('click', e=>{ const it=e.target.closest('.tw-item'); if(it) setTWheelVal(hW, parseInt(it.dataset.v,10), true); });
+  mW.addEventListener('click', e=>{ const it=e.target.closest('.tw-item'); if(it) setTWheelVal(mW, parseInt(it.dataset.v,10), true); });
+  return {
+    upd,
+    setH:(v,s)=>setTWheelVal(hW,v,s), setM:(v,s)=>setTWheelVal(mW,v,s),
+    getH:()=>Math.max(0,Math.min(23, Math.round(hW.scrollTop/TW_ITEM_H))),
+    getM:()=>Math.max(0,Math.min(59, Math.round(mW.scrollTop/TW_ITEM_H)))
+  };
+}
+let timeWheelPair = null;
 
 /* ── ورق تاریخ (قابل استفاده برای: تاریخ ثبت، شروع بازه دلخواه، پایان بازه دلخواه) ── */
 let tmpDate = [...selDate];
@@ -538,10 +624,16 @@ function openDateSheet(target){
   id('dateSheet').classList.add('show');
 }
 function rebuildDaysIfNeeded(){
+  const dayWheel = id('wheelDay');
   const dim = jalaliDaysInMonth(tmpDate[0], tmpDate[1]);
+  const curCount = dayWheel.querySelectorAll('.wheel-item').length;
+  // اگر تعداد روزهای ماه جدید با ماه قبلی یکسان باشد (اکثر جابه‌جایی‌های ماه/سال)، چرخ روز را
+  // بازسازی نکن؛ بازسازی بی‌مورد باعث می‌شد موقعیت اسکرول روز، حتی وقتی کاربر همان لحظه در حال
+  // انتخاب روز بود، به مقدار قدیمی بازنشانی شود — همان اشکال «انتخاب نادقیق تاریخ».
+  if(curCount === dim && tmpDate[2] <= dim) return;
   if(tmpDate[2] > dim) tmpDate[2] = dim;
   const days = Array.from({length: dim}, (_,i)=>toFa(jp2(i+1)));
-  buildWheel(id('wheelDay'), days, tmpDate[2]-1, i=>{ tmpDate[2]=i+1; });
+  buildWheel(dayWheel, days, tmpDate[2]-1, i=>{ tmpDate[2]=i+1; });
 }
 function closeDateSheet(){ id('dateSheet').classList.remove('show'); }
 function confirmDateSheet(){
@@ -567,17 +659,21 @@ function confirmDateSheet(){
   closeDateSheet();
 }
 
-/* ── ورق ساعت ── */
+/* ── ورق ساعت (دقیقاً به سبک برنامهٔ یادآور) ── */
 function openTimeSheet(){
-  const hours = Array.from({length:24},(_,i)=>toFa(jp2(i)));
-  const mins = Array.from({length:60},(_,i)=>toFa(jp2(i)));
-  buildWheel(id('wheelHour'), hours, selTime[0], ()=>{});
-  buildWheel(id('wheelMin'), mins, selTime[1], ()=>{});
+  if(!timeWheelPair){
+    timeWheelPair = makeTWheelPair(id('hourWheel'), id('minWheel'), id('timePreview'));
+  }
   id('timeSheet').classList.add('show');
+  setTimeout(()=>{
+    timeWheelPair.setH(selTime[0], false);
+    timeWheelPair.setM(selTime[1], false);
+    timeWheelPair.upd();
+  }, 30);
 }
 function closeTimeSheet(){ id('timeSheet').classList.remove('show'); }
 function confirmTimeSheet(){
-  selTime = [id('wheelHour')._getIndex(), id('wheelMin')._getIndex()];
+  selTime = [timeWheelPair.getH(), timeWheelPair.getM()];
   refreshRowLabels();
   closeTimeSheet();
 }
@@ -890,66 +986,44 @@ async function captureChart(){
   const wrap = id('chartWrap');
   if(!wrap) return;
 
-  // پنجره را همین الان، در همان لحظهٔ کلیک کاربر، باز می‌کنیم (قبل از هر کار async)
-  // چون مرورگرها فقط window.open را وقتی مستقیماً داخل یک رویداد کلیک باشد مجاز می‌دانند؛
-  // بعد از await، دیگر به‌عنوان پاپ‌آپ مسدود می‌شود. محتوای آن را بعداً پر می‌کنیم.
-  let popup = null;
-  try{ popup = window.open('', '_blank'); }catch(e){ popup = null; }
-
   let canvas;
   try{
     const data = computeChartData();
     if(!data.pts){
-      if(popup && !popup.closed) popup.close();
       showToast('برای ذخیرهٔ تصویر، ابتدا باید نموداری با داده رسم شده باشد');
       return;
     }
     canvas = drawChartCanvas(data, wrap);
   }catch(e){
-    if(popup && !popup.closed) popup.close();
     showToast('در این محیط امکان ذخیرهٔ تصویر نمودار وجود ندارد');
     return;
   }
 
-  // تلاش اول: اشتراک‌گذاری بومی (بهترین حالت، مستقیم گزینهٔ «ذخیره در گالری» را می‌دهد)
+  // تلاش اول: اشتراک‌گذاری بومی (روی اندروید و آیفون، حتی وقتی برنامه به‌صورت PWA نصب شده،
+  // مستقیماً گزینهٔ «ذخیره در گالری» را می‌دهد و به هیچ پنجره یا تب جدیدی نیاز ندارد).
   try{
     const blob = await new Promise(resolve=>{ canvas.toBlob(resolve, 'image/png'); });
     if(blob){
       const fileName = 'weight-chart-' + Date.now() + '.png';
       const file = new File([blob], fileName, {type:'image/png'});
       if(navigator.canShare && navigator.canShare({files:[file]})){
-        if(popup && !popup.closed) popup.close(); // دیگر لازم نیست
         await navigator.share({files:[file], title:'نمودار وزن'});
         showToast('تصویر نمودار ذخیره شد');
         return;
       }
     }
   }catch(e){
-    if(e && e.name==='AbortError'){ if(popup && !popup.closed) popup.close(); return; } // کاربر لغو کرد
+    if(e && e.name==='AbortError') return; // کاربر لغو کرد
+    /* در غیر این صورت به راه دوم (نمایش داخل همین صفحه) برو */
   }
 
-  // تلاش دوم: همان پنجرهٔ از‌پیش‌بازشده را به تصویر هدایت می‌کنیم.
-  // چون این یک سند کاملاً جدید و مستقل است (نه داخل iframe ایزولهٔ آرتیفکت)،
-  // محدودیت‌های CSP/sandbox آرتیفکت روی آن اعمال نمی‌شود و لمس‌طولانی برای ذخیره کار می‌کند.
-  const dataUrl = canvas.toDataURL('image/png');
-  if(popup && !popup.closed){
-    try{
-      popup.document.open();
-      popup.document.write(
-        '<!doctype html><html><head><meta charset="utf-8">' +
-        '<meta name="viewport" content="width=device-width,initial-scale=1">' +
-        '<title>نمودار وزن</title>' +
-        '<style>body{margin:0;background:#11151c;display:flex;align-items:center;justify-content:center;min-height:100vh}' +
-        'img{max-width:100%;height:auto;display:block}</style></head><body>' +
-        '<img src="' + dataUrl + '" alt="نمودار وزن"></body></html>'
-      );
-      popup.document.close();
-      showToast('تصویر در تب جدید باز شد؛ برای ذخیره در گالری، آن را لمس کرده و نگه دارید');
-      return;
-    }catch(e){ /* اگر این هم شکست خورد، برو سراغ راه‌حل تضمینی پایین */ }
-  }
-
-  // راه تضمینی: نمایش خودِ canvas در همین صفحه (حداقل برای دیدن نتیجه و دانلود مستقیم)
+  // راه دوم و اصلی: نمایش مستقیم تصویر همین‌جا، داخل همان صفحه (مودال)، بدون باز کردن پنجره/تب جدید.
+  // نکته: پیش‌تر این بخش می‌کوشید تصویر را در یک تب/پنجرهٔ جداگانه (window.open) باز کند؛ در آیفون،
+  // به‌خصوص وقتی برنامه به‌صورت PWA از صفحهٔ اصلی اجرا می‌شود (حالت standalone)، این پنجرهٔ جدید
+  // اغلب به‌صورت نامرئی باز می‌شد یا اصلاً باز نمی‌شد و کاربر هیچ پیش‌نمایشی نمی‌دید — در حالی که در
+  // اندروید معمولاً کار می‌کرد. با نمایش مستقیم تصویر در همین صفحه (بدون پنجرهٔ جدید)، این مشکل در
+  // هر دو پلتفرم به‌طور یکسان و مطمئن برطرف می‌شود.
+  const dataUrl = (()=>{ try{ return canvas.toDataURL('image/png'); }catch(e){ return null; } })();
   showShotModal(canvas, dataUrl);
 }
 function showShotModal(canvas, dataUrl){
