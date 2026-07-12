@@ -59,17 +59,17 @@ body{
 .card{background:var(--glass);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);border:1px solid var(--gborder);border-radius:var(--r);overflow:hidden;margin-bottom:12px;box-shadow:0 4px 24px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.07)}
 
 /* ── وزن ورودی ── */
-.weight-hero{margin:0;padding:26px 16px 22px;text-align:center;position:relative}
+.weight-hero{margin:0;padding:21px 16px 17px;text-align:center;position:relative}
 .weight-display{display:flex;align-items:baseline;justify-content:center;gap:6px;direction:ltr}
-.weight-val{font-size:58px;font-weight:800;background:var(--accent-grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:var(--numf);line-height:1;letter-spacing:-1px}
+.weight-val{font-size:38px;font-weight:800;background:var(--accent-grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:var(--numf);line-height:1;letter-spacing:-1px}
 .weight-unit{font-size:18px;color:var(--t2);font-weight:600}
-.weight-slider-row{display:flex;align-items:center;gap:12px;margin-top:20px;padding:0 6px}
-.weight-step-btn{width:44px;height:44px;border-radius:50%;background:var(--glass2);border:1px solid var(--gborder2);color:var(--blue);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;-webkit-appearance:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.12);transition:transform .15s,background .2s}
+.weight-slider-row{display:flex;align-items:center;gap:12px;margin-top:15px;padding:0 6px}
+.weight-step-btn{width:37px;height:37px;border-radius:50%;background:var(--glass2);border:1px solid var(--gborder2);color:var(--blue);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;-webkit-appearance:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.12);transition:transform .15s,background .2s}
 .weight-step-btn:active{transform:scale(.88);background:color-mix(in srgb, var(--blue) 18%, transparent)}
 input[type=range].weight-slider{-webkit-appearance:none;appearance:none;flex:1;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--cyan));outline:none;cursor:pointer}
 input[type=range].weight-slider::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid var(--blue);box-shadow:0 2px 10px rgba(0,0,0,.35);cursor:pointer}
 input[type=range].weight-slider::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid var(--blue);box-shadow:0 2px 10px rgba(0,0,0,.35);cursor:pointer;border:4px solid var(--blue)}
-.weight-minmax{display:flex;justify-content:space-between;font-size:11px;color:var(--t3);font-family:var(--numf);margin-top:6px;padding:0 6px}
+.weight-minmax{display:flex;justify-content:space-between;font-size:11px;color:var(--t3);font-family:var(--numf);margin-top:3px;padding:0 6px}
 
 /* ── ردیف انتخاب (تاریخ/ساعت) ── */
 .ir{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--gborder);cursor:pointer}
@@ -109,7 +109,11 @@ input[type=range].weight-slider::-moz-range-thumb{width:26px;height:26px;border-
 .chart-shot-btn svg{width:16px;height:16px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
 .chart-shot-btn:active{transform:scale(.87);box-shadow:0 3px 10px color-mix(in srgb, var(--blue) 40%, transparent),inset 0 1px 0 rgba(255,255,255,.3)}
 .chart-title{font-size:13px;font-weight:700;color:var(--t1)}
-.chart-range-lbl{font-size:11px;color:var(--t3);font-family:var(--numf);direction:ltr;overflow-wrap:break-word;max-width:100%}
+.chart-legend{display:flex;gap:14px;padding:2px 44px 6px 8px;flex-wrap:wrap}
+.chart-legend-item{display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--t3);font-weight:700}
+.chart-legend-item i{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+.bmi-badge{font-weight:900;font-size:15px;letter-spacing:.6px;margin-inline-end:28px;padding:5px 17px;border-radius:999px;color:#fff;background:linear-gradient(150deg, color-mix(in srgb, var(--blue) 55%, transparent) 0%, color-mix(in srgb, var(--purple) 50%, transparent) 55%, color-mix(in srgb, var(--cyan) 50%, transparent) 100%);border:1px solid rgba(255,255,255,.45);box-shadow:0 6px 16px color-mix(in srgb, var(--blue) 22%, transparent),0 2px 4px rgba(0,0,0,.14),inset 0 1.5px 0 rgba(255,255,255,.55),inset 0 -2px 4px rgba(0,0,0,.1);text-shadow:0 1px 2px rgba(0,0,0,.18);backdrop-filter:blur(6px)}
+.chart-range-lbl{font-size:11px;color:var(--t3);font-family:var(--numf);direction:rtl;overflow-wrap:break-word;max-width:100%}
 .chart-svg-wrap{width:100%;overflow:hidden}
 .chart-empty{padding:50px 16px;text-align:center;color:var(--t3);font-size:13.5px;line-height:1.9}
 .chart-empty svg{width:44px;height:44px;color:var(--t3);opacity:.5;margin-bottom:10px}
@@ -132,7 +136,22 @@ input[type=range].weight-slider::-moz-range-thumb{width:26px;height:26px;border-
 .hi-diff.down{background:color-mix(in srgb, var(--green) 18%, transparent);color:var(--green)}
 .hi-diff.flat{background:color-mix(in srgb, var(--t1) 8%, transparent);color:var(--t3)}
 .hist-del-btn{width:26px;height:26px;border-radius:999px;background:color-mix(in srgb, var(--red) 16%, transparent);border:1px solid color-mix(in srgb, var(--red) 36%, transparent);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:12px;cursor:pointer;-webkit-appearance:none;flex-shrink:0}
+.hist-bmi-btn{display:flex;align-items:center;justify-content:center;gap:4px;height:26px;padding:0 10px;border-radius:999px;background:var(--accent-grad);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:10.5px;font-weight:800;cursor:pointer;-webkit-appearance:none;flex-shrink:0;box-shadow:0 4px 12px color-mix(in srgb, var(--blue) 35%, transparent);margin-inline-end:4px}
+.hist-bmi-btn:active{transform:scale(.92)}
 .empty-note{text-align:center;color:var(--t3);font-size:13px;padding:24px 16px;line-height:1.8}
+
+/* ── مودال نمودار BMI ── */
+.bmi-modal-overlay{position:fixed;inset:0;background:color-mix(in srgb, var(--bg1) 60%, transparent);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);display:none;align-items:center;justify-content:center;z-index:250;opacity:0;transition:opacity .3s ease;padding:20px}
+.bmi-modal-overlay.show{display:flex;opacity:1}
+.bmi-modal-card{width:100%;max-width:420px;background:var(--glass2);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border:1px solid var(--gborder2);border-radius:24px;padding:16px;box-shadow:0 20px 60px rgba(0,0,0,.4);position:relative;transform:translateY(10px) scale(.96);transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.bmi-modal-overlay.show .bmi-modal-card{transform:translateY(0) scale(1)}
+.bmi-modal-close{position:absolute;top:12px;left:12px;width:30px;height:30px;border-radius:50%;background:var(--glass);border:1px solid var(--gborder2);color:var(--t2);display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-appearance:none;font-size:13px;z-index:6}
+.bmi-modal-title{font-size:15.5px;font-weight:800;color:var(--t1);text-align:center;margin-bottom:2px;padding-top:2px}
+.bmi-modal-sub{font-size:11.5px;color:var(--t3);text-align:center;margin-bottom:12px;font-family:var(--numf);direction:rtl}
+.bmi-result-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px}
+.bmi-result-badge{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 22px;border-radius:18px;background:var(--glass);border:1px solid var(--gborder)}
+.bmi-result-val{font-family:var(--numf);font-size:22px;font-weight:800;direction:ltr}
+.bmi-result-lbl{font-size:11px;font-weight:700;color:var(--t2)}
 
 /* ── مودال انتخاب تاریخ/ساعت ── */
 .sheet-overlay{position:fixed;inset:0;background:color-mix(in srgb, var(--bg1) 55%, transparent);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);display:none;align-items:center;justify-content:center;z-index:200;opacity:0;transition:opacity .3s ease;padding:24px}
@@ -180,11 +199,12 @@ input[type=range].weight-slider::-moz-range-thumb{width:26px;height:26px;border-
 .shot-modal-share-btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;margin-top:10px;padding:12px 8px;border-radius:16px;border:none;background:var(--accent-grad);color:#fff;font-size:13px;font-weight:700;cursor:pointer;-webkit-appearance:none}
 
 /* ── دکمه‌های روز/شب در هدر ── */
-.theme-pair{display:flex;align-items:center;gap:3px;padding:4px;border-radius:999px;background:var(--nav-glass-bg);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid var(--nav-glass-border);box-shadow:var(--nav-shadow);flex-shrink:0}
-.theme-btn{width:34px;height:34px;border-radius:50%;border:none;background:transparent;color:var(--nav-icon);display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-appearance:none;transition:background .3s,color .3s,transform .15s}
-.theme-btn svg{width:17px;height:17px;flex-shrink:0}
+.theme-pair{display:flex;align-items:center;gap:2.4px;padding:3.2px;border-radius:999px;background:var(--nav-glass-bg);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid var(--nav-glass-border);box-shadow:var(--nav-shadow);flex-shrink:0}
+.theme-btn{position:relative;width:27.2px;height:27.2px;border-radius:50%;border:none;background:transparent;color:var(--nav-icon);display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-appearance:none;transition:background .15s,color .15s,transform .1s;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.theme-btn::before{content:'';position:absolute;top:-8px;left:-8px;right:-8px;bottom:-8px;border-radius:50%}
+.theme-btn svg{width:13.6px;height:13.6px;flex-shrink:0}
 .theme-btn.active{background:var(--accent-grad);color:#fff;box-shadow:0 4px 12px color-mix(in srgb, var(--blue) 40%, transparent),inset 0 1px 0 rgba(255,255,255,.3)}
-.theme-btn:active{transform:scale(.88)}
+.theme-btn:active{transform:scale(.86)}
 </style>
 </head>
 <body>
@@ -195,10 +215,10 @@ input[type=range].weight-slider::-moz-range-thumb{width:26px;height:26px;border-
     <div class="hdr-h1"><b>پیگیری وزن</b></div>
   </div>
   <div class="theme-pair" id="themePair">
-    <button class="theme-btn" id="btnDay" onclick="setTheme('light')" aria-label="حالت روز">
+    <button class="theme-btn" id="btnDay" onpointerdown="setTheme('light')" aria-label="حالت روز">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
     </button>
-    <button class="theme-btn" id="btnNight" onclick="setTheme('dark')" aria-label="حالت شب">
+    <button class="theme-btn" id="btnNight" onpointerdown="setTheme('dark')" aria-label="حالت شب">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
     </button>
   </div>
@@ -221,7 +241,21 @@ input[type=range].weight-slider::-moz-range-thumb{width:26px;height:26px;border-
     </div>
   </div>
 
-  <div class="sec">
+  <div class="sec" style="padding-top:5px">
+    <div class="card">
+      <div class="weight-hero">
+        <div class="weight-display"><span class="weight-val" id="heightVal">170</span><span class="weight-unit">سانتی‌متر</span></div>
+        <div class="weight-slider-row">
+          <button class="weight-step-btn" onclick="stepHeight(-1)" aria-label="کم کردن">−</button>
+          <input type="range" class="weight-slider" id="heightSlider" min="100" max="200" step="1" value="170">
+          <button class="weight-step-btn" onclick="stepHeight(1)" aria-label="اضافه کردن">+</button>
+        </div>
+        <div class="weight-minmax"><span>۱۰۰ سانتی‌متر</span><span>۲۰۰ سانتی‌متر</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" style="padding-top:7px">
     <div class="sec-lbl">تاریخ و ساعت ثبت</div>
     <div class="card">
       <div class="ir" onclick="openDateSheet('entry')">
@@ -290,6 +324,10 @@ input[type=range].weight-slider::-moz-range-thumb{width:26px;height:26px;border-
         <div class="chart-title">گراف وزن (کیلوگرم)</div>
         <div class="chart-range-lbl" id="chartRangeLbl"></div>
       </div>
+      <div class="chart-legend">
+        <span class="chart-legend-item"><i style="background:var(--blue)"></i>وزن</span>
+        <span class="chart-legend-item"><i style="background:conic-gradient(var(--red) 0 33%, var(--yellow) 33% 66%, var(--green) 66% 100%)"></i>BMI</span>
+      </div>
       <div class="chart-svg-wrap" id="chartHolder">
         <div class="chart-empty">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l5-5 4 3 5-7 4 4"/><path d="M3 21h18"/></svg>
@@ -345,6 +383,31 @@ input[type=range].weight-slider::-moz-range-thumb{width:26px;height:26px;border-
     <div class="sheet-btns">
       <button class="sheet-cancel" onclick="closeTimeSheet()">انصراف</button>
       <button class="sheet-ok" onclick="confirmTimeSheet()">تایید</button>
+    </div>
+  </div>
+</div>
+
+<!-- ───── مودال نمودار BMI ───── -->
+<div class="bmi-modal-overlay" id="bmiModalOverlay">
+  <div class="bmi-modal-card">
+    <button class="bmi-modal-close" onclick="closeBmiModal()" aria-label="بستن">✕</button>
+    <div class="bmi-modal-title">نمودار شاخص توده بدنی (BMI)</div>
+    <div class="bmi-modal-sub" id="bmiModalSub"></div>
+    <div class="chart-wrap" id="bmiChartWrap" style="margin:0">
+      <button class="chart-shot-btn" onclick="captureBmiChart()" aria-label="ذخیره تصویر نمودار BMI">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h2.5l1.2-2h8.6l1.2 2H20a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.3"/></svg>
+      </button>
+      <div class="chart-hdr">
+        <div class="chart-title bmi-badge">BMI</div>
+        <div class="chart-range-lbl" id="bmiChartRangeLbl"></div>
+      </div>
+      <div class="chart-svg-wrap" id="bmiChartHolder"></div>
+    </div>
+    <div class="bmi-result-row">
+      <div class="bmi-result-badge">
+        <span class="bmi-result-val" id="bmiResultVal">—</span>
+        <span class="bmi-result-lbl" id="bmiResultLbl">—</span>
+      </div>
     </div>
   </div>
 </div>
@@ -426,6 +489,7 @@ function jalaliDaysInMonth(jy,jm){
 function jp2(n){ return n.toString().padStart(2,'0'); }
 function jalaliKey(jy,jm,jd){ return `${jy}-${jp2(jm)}-${jp2(jd)}`; }
 function jalaliLabel(jy,jm,jd){ return `${toFa(jd)} ${JMONTHS[jm-1]} ${toFa(jy)}`; }
+function jalaliLabelSlash(jy,jm,jd){ return `${toFa(jd)} / ${JMONTHS[jm-1]} / ${toFa(jy)}`; }
 function jalaliShort(jy,jm,jd){ return `${toFa(jy)}/${toFa(jp2(jm))}/${toFa(jp2(jd))}`; }
 function weekdayOf(jy,jm,jd){
   const [gy,gm,gd]=jalaliToGregorian(jy,jm,jd);
@@ -445,6 +509,7 @@ function ordinalToJalali(ord){
 
 /* ═══════════════ حالت برنامه ═══════════════ */
 let curWeight = 70.0;
+let curHeight = 170;
 let selDate = todayJalali(); // [jy,jm,jd]
 let selTime = (function(){ const d=new Date(); return [d.getHours(), Math.round(d.getMinutes()/5)*5 % 60]; })();
 let range = 'week';
@@ -505,9 +570,26 @@ async function persistEntries(){
 }
 
 /* ═══════════════ وزن: اسلایدر ═══════════════ */
-function renderWeight(){ id('weightVal').textContent = toFa(curWeight.toFixed(1)); id('weightSlider').value = curWeight; }
+function saveLastWeight(){ try{ localStorage.setItem('wtrack-last-weight', String(curWeight)); }catch(e){} }
+function renderWeight(){ id('weightVal').textContent = toFa(curWeight.toFixed(1)); id('weightSlider').value = curWeight; saveLastWeight(); }
 function stepWeight(d){ curWeight = Math.min(200, Math.max(20, +(curWeight+d).toFixed(1))); renderWeight(); }
 id('weightSlider').addEventListener('input', e=>{ curWeight = +(+e.target.value).toFixed(1); renderWeight(); });
+
+/* ═══════════════ قد: اسلایدر ═══════════════
+   قد برخلاف وزن تقریباً برای هر کاربری ثابت می‌ماند، پس آخرین مقدار انتخاب‌شده (هم قد و هم وزن)
+   در localStorage ذخیره می‌شود تا با هر بار باز کردن برنامه، اسلایدرها روی آخرین تنظیم بمانند. */
+function saveLastHeight(){ try{ localStorage.setItem('wtrack-last-height', String(curHeight)); }catch(e){} }
+function renderHeight(){ id('heightVal').textContent = toFa(Math.round(curHeight)); id('heightSlider').value = curHeight; saveLastHeight(); }
+function stepHeight(d){ curHeight = Math.min(200, Math.max(100, Math.round(curHeight+d))); renderHeight(); }
+id('heightSlider').addEventListener('input', e=>{ curHeight = Math.round(+e.target.value); renderHeight(); });
+function loadLastWeightHeight(){
+  try{
+    const lw = localStorage.getItem('wtrack-last-weight');
+    if(lw!==null){ const n=+lw; if(!isNaN(n) && n>=20 && n<=200) curWeight = n; }
+    const lh = localStorage.getItem('wtrack-last-height');
+    if(lh!==null){ const n=+lh; if(!isNaN(n) && n>=100 && n<=200) curHeight = n; }
+  }catch(e){}
+}
 
 /* ═══════════════ نمایش مقدار تاریخ/ساعت در ردیف‌ها ═══════════════ */
 function refreshRowLabels(){
@@ -692,7 +774,7 @@ async function saveEntry(){
   const [jy,jm,jd]=selDate;
   const key = jalaliKey(jy,jm,jd);
   const ord = jalaliOrdinal(jy,jm,jd);
-  const entry = { key, jy,jm,jd, h:selTime[0], m:selTime[1], weight:curWeight, ord, ts: Date.now() };
+  const entry = { key, jy,jm,jd, h:selTime[0], m:selTime[1], weight:curWeight, height:curHeight, ord, ts: Date.now() };
   // اگر همان روز قبلاً ثبت شده، جایگزین کن (آخرین ثبت هر روز ملاک است)
   const existingIdx = entries.findIndex(e=>e.key===key);
   if(existingIdx>-1) entries[existingIdx]=entry; else entries.push(entry);
@@ -783,11 +865,21 @@ function computeChartData(){
   const padv = (maxW-minW)*0.15 || 1;
   minW -= padv; maxW += padv;
 
+  let minBmi=Infinity, maxBmi=-Infinity;
+  for(const p of pts){
+    const hM = (p.height || curHeight || 170)/100;
+    const b = p.weight/(hM*hM);
+    if(b<minBmi) minBmi=b; if(b>maxBmi) maxBmi=b;
+  }
+  if(minBmi===maxBmi){ minBmi-=1; maxBmi+=1; }
+  const padb = (maxBmi-minBmi)*0.15 || 1;
+  minBmi -= padb; maxBmi += padb;
+
   const minOrd = pts[0].ord, maxOrd = pts[pts.length-1].ord;
   const ordSpan = Math.max(1, maxOrd-minOrd);
   const rangeLabel = `${jalaliShort(pts[0].jy,pts[0].jm,pts[0].jd)} → ${jalaliShort(pts[pts.length-1].jy,pts[pts.length-1].jm,pts[pts.length-1].jd)}`;
 
-  return {pts, minW, maxW, minOrd, maxOrd, ordSpan, rangeLabel};
+  return {pts, minW, maxW, minBmi, maxBmi, minOrd, maxOrd, ordSpan, rangeLabel};
 }
 
 let chartRenderSeq = 0; // برای تولید شناسهٔ یکتای گرادیان در هر رندر — از کش‌شدن گرادیان در برخی وب‌ویوهای WebKit جلوگیری می‌کند
@@ -805,24 +897,34 @@ function renderChart(){
       id('chartRangeLbl').textContent='';
       return;
     }
-    const {pts, minW, maxW, minOrd, maxOrd, ordSpan, rangeLabel} = data;
+    const {pts, minW, maxW, minBmi, maxBmi, minOrd, maxOrd, ordSpan, rangeLabel} = data;
     id('chartRangeLbl').textContent = rangeLabel;
 
-    const W=320, H=190, padL=34, padR=14, padT=18, padB=26;
+    const W=320, H=190, padL=52, padR=52, padT=18, padB=26;
     const innerW = W-padL-padR, innerH = H-padT-padB;
 
     function X(ord){ return padL + (ordSpan===0?innerW/2:(ord-minOrd)/ordSpan*innerW); }
     function Y(w){ return padT + innerH - ((w-minW)/(maxW-minW))*innerH; }
+    function Ybmi(b){ return padT + innerH - ((b-minBmi)/(maxBmi-minBmi))*innerH; }
 
     // خطوط راهنمای افقی
     const gridCount=4;
-    let gridLines='', gridLabels='';
+    let gridLines='', gridLabels='', bmiAxisLabels='';
     for(let i=0;i<=gridCount;i++){
       const w = minW + (maxW-minW)*i/gridCount;
       const y = Y(w);
       gridLines += `<line x1="${padL}" y1="${y.toFixed(1)}" x2="${W-padR}" y2="${y.toFixed(1)}" stroke="var(--gborder)" stroke-width="1"/>`;
       gridLabels += `<text x="${padL-6}" y="${(y+3.5).toFixed(1)}" font-size="9" text-anchor="end" fill="var(--t3)" font-family="var(--numf)">${toFa(w.toFixed(1))}</text>`;
     }
+    for(let i=0;i<=gridCount;i++){
+      const b = minBmi + (maxBmi-minBmi)*i/gridCount;
+      const y = Ybmi(b);
+      bmiAxisLabels += `<text x="${W-padR+5}" y="${(y+3.5).toFixed(1)}" font-size="9" text-anchor="start" fill="var(--green)" font-family="var(--numf)">${toFa(b.toFixed(1))}</text>`;
+    }
+    // عنوان‌های عمودی محورها — «وزن» سمت چپ و «BMI» سمت راست، کنار اعداد هر محور
+    const axisCenterY = (padT+innerH/2).toFixed(1);
+    const weightAxisTitle = `<text x="14" y="${axisCenterY}" font-size="13.5" font-weight="800" text-anchor="middle" fill="var(--blue)" font-family="var(--numf)" transform="rotate(-90 14 ${axisCenterY})">وزن</text>`;
+    const bmiAxisTitle = `<text x="${W-14}" y="${axisCenterY}" font-size="13.5" font-weight="800" text-anchor="middle" fill="var(--green)" font-family="var(--numf)" transform="rotate(-90 ${W-14} ${axisCenterY})">BMI</text>`;
 
     // مسیر خط و ناحیه
     let linePath='', areaPath='';
@@ -832,13 +934,27 @@ function renderChart(){
     });
     areaPath = linePath + `L${X(pts[pts.length-1].ord).toFixed(1)} ${(padT+innerH).toFixed(1)} L${X(pts[0].ord).toFixed(1)} ${(padT+innerH).toFixed(1)} Z`;
 
+    // مسیر خط BMI (سبز، بدون ناحیهٔ پرشده، روی محور عمودی مستقل خودش)
+    let bmiLinePath='';
+    pts.forEach((p,i)=>{
+      const hM = (p.height || curHeight || 170)/100;
+      const b = p.weight/(hM*hM);
+      const x=X(p.ord), y=Ybmi(b);
+      bmiLinePath += (i===0?'M':'L')+x.toFixed(1)+' '+y.toFixed(1)+' ';
+    });
+
     // نقاط و برچسب روز زیر محور
-    let dots='', xlabels='';
+    let dots='', bmiDots='', xlabels='';
     const labelStep = Math.max(1, Math.ceil(pts.length / (range==='week'?7:6)));
     pts.forEach((p,i)=>{
       const x=X(p.ord), y=Y(p.weight);
       const isLast = i===pts.length-1;
       dots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${isLast?4.5:3}" fill="${isLast?'#fff':'var(--bg1)'}" stroke="var(--blue)" stroke-width="${isLast?2.5:2}"/>`;
+      const hM = (p.height || curHeight || 170)/100;
+      const b = p.weight/(hM*hM);
+      const by = Ybmi(b);
+      const bColor = bmiDotColor(b);
+      bmiDots += `<circle cx="${x.toFixed(1)}" cy="${by.toFixed(1)}" r="${isLast?4:2.6}" fill="${isLast?'#fff':'var(--bg1)'}" stroke="${bColor}" stroke-width="${isLast?2.2:1.8}"/>`;
       if(i%labelStep===0 || isLast){
         xlabels += `<text x="${x.toFixed(1)}" y="${H-6}" font-size="9" text-anchor="middle" fill="var(--t3)" font-family="var(--numf)">${toFa(jp2(p.jm))}/${toFa(jp2(p.jd))}</text>`;
       }
@@ -864,8 +980,13 @@ function renderChart(){
       ${gridLines}
       <path d="${areaPath}" fill="url(#${areaGradId})" stroke="none"/>
       <path d="${linePath}" fill="none" stroke="url(#${lineGradId})" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="${bmiLinePath}" fill="none" stroke="var(--green)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 3" opacity="0.92"/>
       ${dots}
+      ${bmiDots}
       ${gridLabels}
+      ${bmiAxisLabels}
+      ${weightAxisTitle}
+      ${bmiAxisTitle}
       ${xlabels}
     </svg>`;
     void holder.offsetHeight; // اجبار به بازچینش/رسم فوری به‌جای دسته‌بندی تغییرات توسط مرورگر
@@ -897,23 +1018,24 @@ function hexWithAlpha(hex, alpha01){
   return hex + a;
 }
 function drawChartCanvas(data, wrap){
-  const {pts, minW, maxW, minOrd, maxOrd, ordSpan, rangeLabel} = data;
+  const {pts, minW, maxW, minBmi, maxBmi, minOrd, maxOrd, ordSpan, rangeLabel} = data;
   const titleText = wrap.querySelector('.chart-title')?.textContent || '';
 
-  const W=320, H=190, padL=34, padR=14, padT=18, padB=26;
+  const W=320, H=190, padL=52, padR=52, padT=18, padB=26;
   const innerW = W-padL-padR, innerH = H-padT-padB;
   function X(ord){ return padL + (ordSpan===0?innerW/2:(ord-minOrd)/ordSpan*innerW); }
   function Y(w){ return padT + innerH - ((w-minW)/(maxW-minW))*innerH; }
+  function Ybmi(b){ return padT + innerH - ((b-minBmi)/(maxBmi-minBmi))*innerH; }
 
   const cs = getComputedStyle(document.documentElement);
   const val=(n,fb)=>cs.getPropertyValue(n).trim()||fb;
   const bg2=val('--bg2','#170d1f'), bg1=val('--bg1','#0a0a16'), t1=val('--t1','#eef2fb'),
         t3=val('--t3','#73809e'), gborder=val('--gborder','rgba(255,255,255,.14)'),
-        blue=val('--blue','#4da3ff'), cyan=val('--cyan','#39d5dd');
+        blue=val('--blue','#4da3ff'), cyan=val('--cyan','#39d5dd'), green=val('--green','#2ee6a6');
 
   const scale = 2;
   const cardW = Math.max(280, wrap.clientWidth || 320);
-  const padding = 16, titleAreaH = 32;
+  const padding = 16, titleAreaH = 50;
   const drawW = cardW - padding*2;
   const drawH = drawW * (H/W);
   const totalW = cardW, totalH = padding*2 + titleAreaH + drawH;
@@ -955,6 +1077,32 @@ function drawChartCanvas(data, wrap){
     ctx.textAlign = 'right';
     ctx.fillText(toFa(w.toFixed(1)), padL-6, y+3.2);
   }
+  for(let i=0;i<=gridCount;i++){
+    const b = minBmi + (maxBmi-minBmi)*i/gridCount;
+    const y = Ybmi(b);
+    ctx.fillStyle = green; ctx.font = "9px Vazirmatn, Tahoma, Arial, sans-serif";
+    ctx.textAlign = 'left';
+    ctx.fillText(toFa(b.toFixed(1)), W-padR+5, y+3.2);
+  }
+
+  const axisCenterY = padT+innerH/2;
+  ctx.save();
+  ctx.translate(14, axisCenterY);
+  ctx.rotate(-Math.PI/2);
+  ctx.textAlign = 'center'; ctx.direction='ltr';
+  ctx.font = "800 13.5px Vazirmatn, Tahoma, Arial, sans-serif";
+  ctx.fillStyle = blue;
+  ctx.fillText('وزن', 0, 4.6);
+  ctx.restore();
+
+  ctx.save();
+  ctx.translate(W-14, axisCenterY);
+  ctx.rotate(-Math.PI/2);
+  ctx.textAlign = 'center'; ctx.direction='ltr';
+  ctx.font = "800 13.5px Vazirmatn, Tahoma, Arial, sans-serif";
+  ctx.fillStyle = green;
+  ctx.fillText('BMI', 0, 4.6);
+  ctx.restore();
 
   ctx.beginPath();
   pts.forEach((p,i)=>{ const x=X(p.ord), y=Y(p.weight); if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y); });
@@ -973,6 +1121,20 @@ function drawChartCanvas(data, wrap){
   ctx.strokeStyle = lineGrad; ctx.lineWidth = 2.6; ctx.lineJoin='round'; ctx.lineCap='round';
   ctx.stroke();
 
+  ctx.save();
+  ctx.beginPath();
+  pts.forEach((p,i)=>{
+    const hM = (p.height || curHeight || 170)/100;
+    const b = p.weight/(hM*hM);
+    const x=X(p.ord), y=Ybmi(b);
+    if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  });
+  ctx.strokeStyle = green; ctx.lineWidth = 2; ctx.lineJoin='round'; ctx.lineCap='round';
+  ctx.globalAlpha = 0.92;
+  ctx.setLineDash([4,3]);
+  ctx.stroke();
+  ctx.restore();
+
   const labelStep = Math.max(1, Math.ceil(pts.length / (range==='week'?7:6)));
   pts.forEach((p,i)=>{
     const x=X(p.ord), y=Y(p.weight);
@@ -981,6 +1143,15 @@ function drawChartCanvas(data, wrap){
     ctx.fillStyle = isLast ? '#ffffff' : bg1;
     ctx.fill();
     ctx.strokeStyle = blue; ctx.lineWidth = isLast?2.5:2; ctx.stroke();
+
+    const hM = (p.height || curHeight || 170)/100;
+    const b = p.weight/(hM*hM);
+    const by = Ybmi(b);
+    ctx.beginPath(); ctx.arc(x,by, isLast?4:2.6, 0, Math.PI*2);
+    ctx.fillStyle = isLast ? '#ffffff' : bg1;
+    ctx.fill();
+    ctx.strokeStyle = bmiDotColor(b); ctx.lineWidth = isLast?2.2:1.8; ctx.stroke();
+
     if(i%labelStep===0 || isLast){
       ctx.fillStyle = t3; ctx.font = "9px Vazirmatn, Tahoma, Arial, sans-serif";
       ctx.textAlign = 'center';
@@ -989,6 +1160,24 @@ function drawChartCanvas(data, wrap){
   });
 
   ctx.restore();
+
+  /* ── راهنمای رنگ‌ها (وزن/BMI) زیر عنوان، دقیقاً مطابق نمای زنده ── */
+  ctx.direction='rtl'; ctx.textAlign='right'; ctx.textBaseline='alphabetic';
+  ctx.font = "700 10px Vazirmatn, Tahoma, Arial, sans-serif";
+  const legendY = padding+38;
+  let lx = totalW-padding;
+  const redC = val('--red','#ff5c7a'), yellowC = val('--yellow','#ffd23f');
+  const segR = 3.5, segCx = lx-3, segCy = legendY-3;
+  ctx.beginPath(); ctx.moveTo(segCx,segCy); ctx.arc(segCx,segCy,segR, -Math.PI/2, -Math.PI/2+Math.PI*2/3); ctx.closePath(); ctx.fillStyle=redC; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(segCx,segCy); ctx.arc(segCx,segCy,segR, -Math.PI/2+Math.PI*2/3, -Math.PI/2+Math.PI*4/3); ctx.closePath(); ctx.fillStyle=yellowC; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(segCx,segCy); ctx.arc(segCx,segCy,segR, -Math.PI/2+Math.PI*4/3, -Math.PI/2+Math.PI*2); ctx.closePath(); ctx.fillStyle=green; ctx.fill();
+  ctx.fillStyle = t3; ctx.fillText('BMI', lx-11, legendY);
+  ctx.font = "700 10px Vazirmatn, Tahoma, Arial, sans-serif";
+  const bmiTxtW = ctx.measureText('BMI').width;
+  lx = lx-11-bmiTxtW-14;
+  ctx.beginPath(); ctx.arc(lx-3, legendY-3, 3.5, 0, Math.PI*2); ctx.fillStyle=blue; ctx.fill();
+  ctx.fillStyle = t3; ctx.fillText('وزن', lx-11, legendY);
+
   return canvas;
 }
 let lastShotFile = null;
@@ -1087,6 +1276,308 @@ function closeShotModal(){
   id('shotModalOverlay').classList.remove('show');
 }
 
+/* ═══════════════ نمودار BMI ═══════════════
+   باندهای رنگی بر اساس آستانه‌های استاندارد شاخص توده بدنی، مشابه نمودارهای پزشکی رایج
+   ولی با گرافیک شیشه‌ای هماهنگ با ظاهر برنامه. هر باند به‌صورت یک منحنی وزن=BMI×قد²
+   محاسبه و به چند‌ضلعی تبدیل می‌شود تا خط مورب طبیعی BMI حفظ شود. */
+const BMI_BANDS = [
+  { hi: Infinity, lo: 40,   color:'#e6483d', label:'۴۰', name:'چاقی شدید', icon:'⛔' },
+  { hi: 40,        lo: 30,  color:'#f0a23c', label:'۳۰', name:'چاقی',      icon:'⭕' },
+  { hi: 30,        lo: 25,  color:'#e0d24a', label:'۲۵', name:'اضافه وزن', icon:'⚠️' },
+  { hi: 25,        lo: 18.5,color:'#33b56f', label:'۱۸.۵', name:'طبیعی',   icon:'🙂' },
+  { hi: 18.5,      lo: 0,   color:'#2fb6c4', label:null,  name:'کمبود وزن', icon:'⚠️' },
+];
+function bmiCategory(bmi){
+  for(const b of BMI_BANDS){ if(bmi>=b.lo && bmi<b.hi) return b; }
+  return BMI_BANDS[BMI_BANDS.length-1];
+}
+/* رنگ‌بندی نقاط BMI روی گراف روند وزن، دقیقاً بر اساس همان ۵ باند استاندارد
+   مورد استفاده در نمودار تفصیلی BMI (BMI_BANDS) — تا رنگ هر نقطه با مقدار واقعی‌اش هماهنگ باشد. */
+function bmiDotColor(bmi){ return bmiCategory(bmi).color; }
+let currentBmiEntry = null;
+
+function computeBmiChartData(entry){
+  const heightCm = entry.height || curHeight || 170;
+  const heightM = heightCm/100;
+  const weight = entry.weight;
+  const bmi = weight/(heightM*heightM);
+
+  // دامنهٔ محور افقی (قد به متر): پیش‌فرض مشابه بازهٔ متداول بزرگسالان، در صورت نیاز برای جا دادن نقطهٔ ثبت‌شده گسترش می‌یابد
+  let xMin = Math.min(1.4, heightM-0.08), xMax = Math.max(2.05, heightM+0.08);
+  // دامنهٔ محور عمودی (وزن به کیلوگرم): پیش‌فرض مشابه نمودار مرجع، با گسترش برای جا دادن نقطه
+  let yMin = Math.min(35, weight-18), yMax = Math.max(140, weight+18);
+
+  return {heightCm, heightM, weight, bmi, xMin, xMax, yMin, yMax};
+}
+
+function buildBmiBandPolygons(data, X, Y, steps){
+  const {xMin, xMax, yMin, yMax} = data;
+  const n = steps||24;
+  return BMI_BANDS.map(band=>{
+    const top=[], bot=[];
+    for(let i=0;i<=n;i++){
+      const x = xMin + (xMax-xMin)*i/n;
+      const upperW = band.hi===Infinity ? yMax : Math.max(yMin, Math.min(yMax, band.hi*x*x));
+      const lowerW = band.lo<=0 ? yMin : Math.max(yMin, Math.min(yMax, band.lo*x*x));
+      top.push([X(x), Y(upperW)]);
+      bot.push([X(x), Y(lowerW)]);
+    }
+    return {band, top, bot};
+  });
+}
+
+function renderBmiChart(entry){
+  const holder = id('bmiChartHolder');
+  const data = computeBmiChartData(entry);
+  const {heightCm, heightM, weight, bmi, xMin, xMax, yMin, yMax} = data;
+
+  const W=320, H=210, padL=34, padR=40, padT=14, padB=26;
+  const innerW=W-padL-padR, innerH=H-padT-padB;
+  const X = x => padL + (x-xMin)/(xMax-xMin)*innerW;
+  const Y = w => padT + innerH - (w-yMin)/(yMax-yMin)*innerH;
+
+  const polys = buildBmiBandPolygons(data, X, Y, 28);
+  let bandsSvg = polys.map(p=>{
+    const pathD = 'M'+p.top.map(pt=>pt[0].toFixed(1)+' '+pt[1].toFixed(1)).join(' L')
+                + ' L'+[...p.bot].reverse().map(pt=>pt[0].toFixed(1)+' '+pt[1].toFixed(1)).join(' L')+' Z';
+    return `<path d="${pathD}" fill="${p.band.color}" fill-opacity="0.78"/>`;
+  }).join('');
+
+  // برچسب اعداد آستانه در لبهٔ راست نمودار (مشابه نمودارهای مرجع BMI)
+  let bandLabels = '';
+  BMI_BANDS.forEach(band=>{
+    if(!band.label) return;
+    const w = Math.max(yMin, Math.min(yMax, band.lo*xMax*xMax));
+    const y = Y(w);
+    if(y < padT+2 || y > padT+innerH-2) return;
+    bandLabels += `<text x="${(W-padR+6).toFixed(1)}" y="${(y+3.2).toFixed(1)}" font-size="9.5" font-weight="800" fill="rgba(0,0,0,.55)" font-family="var(--numf)">${band.label}</text>`;
+  });
+
+  // خطوط راهنمای عمودی (قد) و افقی (وزن)
+  let grid = '';
+  for(let gx=Math.ceil(xMin*10)/10; gx<=xMax+0.001; gx+=0.2){
+    const x = X(gx);
+    grid += `<line x1="${x.toFixed(1)}" y1="${padT}" x2="${x.toFixed(1)}" y2="${padT+innerH}" stroke="rgba(255,255,255,.28)" stroke-width="1"/>`;
+    grid += `<text x="${x.toFixed(1)}" y="${H-8}" font-size="9" text-anchor="middle" fill="var(--t3)" font-family="var(--numf)">${toFa(gx.toFixed(1))}</text>`;
+  }
+  for(let gw=Math.ceil(yMin/20)*20; gw<=yMax; gw+=20){
+    const y = Y(gw);
+    grid += `<line x1="${padL}" y1="${y.toFixed(1)}" x2="${W-padR}" y2="${y.toFixed(1)}" stroke="rgba(255,255,255,.22)" stroke-width="1"/>`;
+    grid += `<text x="${(padL-6).toFixed(1)}" y="${(y+3.2).toFixed(1)}" font-size="9" text-anchor="end" fill="var(--t3)" font-family="var(--numf)">${toFa(gw)}</text>`;
+  }
+
+  const px = X(heightM), py = Y(Math.max(yMin,Math.min(yMax,weight)));
+  const point = `
+    <circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="9" fill="#fff" opacity=".25"/>
+    <circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="6" fill="#ffffff" stroke="#10233a" stroke-width="2.6"/>`;
+
+  holder.innerHTML = '';
+  holder.innerHTML = `
+  <svg viewBox="0 0 ${W} ${H}" width="100%" style="display:block;border-radius:14px;overflow:hidden">
+    <rect x="${padL}" y="${padT}" width="${innerW}" height="${innerH}" fill="#0a0a16"/>
+    ${bandsSvg}
+    ${grid}
+    ${bandLabels}
+    ${point}
+  </svg>`;
+  void holder.offsetHeight;
+
+  const cat = bmiCategory(bmi);
+  id('bmiModalSub').textContent = jalaliLabelSlash(entry.jy,entry.jm,entry.jd);
+  id('bmiChartRangeLbl').innerHTML = `<div>وزن : ${toFa(weight.toFixed(1))} کیلوگرم</div><div style="margin-top:2px">قد : ${toFa(heightCm)} سانتی‌متر</div>`;
+  id('bmiResultVal').textContent = toFa(bmi.toFixed(1));
+  id('bmiResultVal').style.color = cat.color;
+  id('bmiResultLbl').textContent = `${cat.icon} ${cat.name}`;
+}
+
+function openBmiModal(key){
+  const entry = entries.find(e=>e.key===key);
+  if(!entry) return;
+  currentBmiEntry = entry;
+  renderBmiChart(entry);
+  id('bmiModalOverlay').classList.add('show');
+}
+function closeBmiModal(){
+  id('bmiModalOverlay').classList.remove('show');
+}
+
+/* ── نسخهٔ Canvas از نمودار BMI برای اسکرین‌شات (دقیقاً مطابق نسخهٔ SVG) ── */
+function drawBmiChartCanvas(entry, wrap){
+  const data = computeBmiChartData(entry);
+  const {heightCm, heightM, weight, bmi, xMin, xMax, yMin, yMax} = data;
+  const cat = bmiCategory(bmi);
+
+  const W=320, H=210, padL=34, padR=40, padT=14, padB=26;
+  const innerW=W-padL-padR, innerH=H-padT-padB;
+  const X = x => padL + (x-xMin)/(xMax-xMin)*innerW;
+  const Y = w => padT + innerH - (w-yMin)/(yMax-yMin)*innerH;
+
+  const cs = getComputedStyle(document.documentElement);
+  const val=(n,fb)=>cs.getPropertyValue(n).trim()||fb;
+  const bg2=val('--bg2','#170d1f'), t1=val('--t1','#eef2fb'), t2=val('--t2','#aab4cc'), t3=val('--t3','#73809e');
+  const cBlue=val('--blue','#4da3ff'), cPurple=val('--purple','#b48bff'), cCyan=val('--cyan','#39d5dd');
+
+  const scale = 2;
+  const cardW = Math.max(280, wrap.clientWidth || 320);
+  const padding = 16, titleAreaH = 46, resultAreaH = 88;
+  const drawW = cardW - padding*2;
+  const drawH = drawW * (H/W);
+  const totalW = cardW, totalH = padding*2 + titleAreaH + drawH + resultAreaH;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.max(1, Math.round(totalW*scale));
+  canvas.height = Math.max(1, Math.round(totalH*scale));
+  canvas.style.width='100%'; canvas.style.height='auto'; canvas.style.display='block'; canvas.style.borderRadius='14px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(scale, scale);
+
+  roundRectPath(ctx,0,0,totalW,totalH,18);
+  ctx.fillStyle = bg2; ctx.fill();
+
+  ctx.textBaseline='alphabetic';
+  ctx.font = "900 15px Vazirmatn, Tahoma, Arial, sans-serif";
+  const bmiText = 'BMI';
+  const bmiTextW = ctx.measureText(bmiText).width;
+  const badgePadX = 15, badgePadY = 5, badgeH = 15+badgePadY*2;
+  const badgeW = bmiTextW + badgePadX*2;
+  const badgeRight = totalW - padding - 28;
+  const badgeX = badgeRight - badgeW;
+  const badgeY = padding - 2;
+
+  ctx.save();
+  ctx.shadowColor = hexWithAlpha(cBlue, 0.22); ctx.shadowBlur = 14; ctx.shadowOffsetY = 5;
+  roundRectPath(ctx, badgeX, badgeY, badgeW, badgeH, badgeH/2);
+  const badgeGrad = ctx.createLinearGradient(badgeX, badgeY, badgeX+badgeW, badgeY+badgeH);
+  badgeGrad.addColorStop(0, hexWithAlpha(cBlue, 0.55));
+  badgeGrad.addColorStop(0.55, hexWithAlpha(cPurple, 0.5));
+  badgeGrad.addColorStop(1, hexWithAlpha(cCyan, 0.5));
+  ctx.fillStyle = badgeGrad; ctx.fill();
+  ctx.restore();
+
+  roundRectPath(ctx, badgeX, badgeY, badgeW, badgeH, badgeH/2);
+  ctx.strokeStyle = 'rgba(255,255,255,.45)'; ctx.lineWidth = 1; ctx.stroke();
+
+  ctx.save();
+  roundRectPath(ctx, badgeX, badgeY, badgeW, badgeH, badgeH/2);
+  ctx.clip();
+  const sheen = ctx.createLinearGradient(badgeX, badgeY, badgeX, badgeY+badgeH);
+  sheen.addColorStop(0, 'rgba(255,255,255,.5)');
+  sheen.addColorStop(0.5, 'rgba(255,255,255,0)');
+  sheen.addColorStop(1, 'rgba(0,0,0,.1)');
+  ctx.fillStyle = sheen;
+  ctx.fillRect(badgeX, badgeY, badgeW, badgeH);
+  ctx.restore();
+
+  ctx.textAlign='center'; ctx.direction='ltr';
+  ctx.fillStyle = 'rgba(0,0,0,.2)';
+  ctx.fillText(bmiText, badgeX+badgeW/2, badgeY+badgeH/2+5.5+1);
+  ctx.fillStyle = '#fff';
+  ctx.fillText(bmiText, badgeX+badgeW/2, badgeY+badgeH/2+5.5);
+
+  ctx.direction='rtl'; ctx.textAlign='left';
+  ctx.fillStyle = t3; ctx.font = "11px Vazirmatn, Tahoma, Arial, sans-serif";
+  ctx.fillText('وزن : '+toFa(weight.toFixed(1))+' کیلوگرم', padding, padding+15);
+  ctx.fillText('قد : '+toFa(heightCm)+' سانتی‌متر', padding, padding+31);
+
+  ctx.save();
+  ctx.translate(padding, padding+titleAreaH);
+  const k = drawW / W;
+  ctx.scale(k,k);
+
+  roundRectPath(ctx, padL, padT, innerW, innerH, 6);
+  ctx.fillStyle = '#0a0a16'; ctx.fill();
+
+  const polys = buildBmiBandPolygons(data, X, Y, 28);
+  polys.forEach(p=>{
+    ctx.beginPath();
+    ctx.moveTo(p.top[0][0], p.top[0][1]);
+    p.top.forEach(pt=>ctx.lineTo(pt[0],pt[1]));
+    for(let i=p.bot.length-1;i>=0;i--) ctx.lineTo(p.bot[i][0], p.bot[i][1]);
+    ctx.closePath();
+    ctx.fillStyle = hexWithAlpha(p.band.color, 0.78);
+    ctx.fill();
+  });
+
+  ctx.strokeStyle = 'rgba(255,255,255,.28)'; ctx.lineWidth = 1;
+  ctx.fillStyle = t3; ctx.font = "9px Vazirmatn, Tahoma, Arial, sans-serif"; ctx.textAlign='center';
+  for(let gx=Math.ceil(xMin*10)/10; gx<=xMax+0.001; gx+=0.2){
+    const x = X(gx);
+    ctx.beginPath(); ctx.moveTo(x,padT); ctx.lineTo(x,padT+innerH); ctx.stroke();
+    ctx.fillText(gx.toFixed(1), x, H-8);
+  }
+  ctx.strokeStyle = 'rgba(255,255,255,.22)';
+  ctx.textAlign='right';
+  for(let gw=Math.ceil(yMin/20)*20; gw<=yMax; gw+=20){
+    const y = Y(gw);
+    ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(W-padR,y); ctx.stroke();
+    ctx.fillText(String(gw), padL-6, y+3.2);
+  }
+
+  ctx.textAlign='left'; ctx.fillStyle='rgba(0,0,0,.55)'; ctx.font="700 9.5px Vazirmatn, Tahoma, Arial, sans-serif";
+  BMI_BANDS.forEach(band=>{
+    if(!band.label) return;
+    const w = Math.max(yMin, Math.min(yMax, band.lo*xMax*xMax));
+    const y = Y(w);
+    if(y < padT+2 || y > padT+innerH-2) return;
+    ctx.fillText(band.label, W-padR+6, y+3.2);
+  });
+
+  const px = X(heightM), py = Y(Math.max(yMin,Math.min(yMax,weight)));
+  ctx.beginPath(); ctx.arc(px,py,9,0,Math.PI*2); ctx.fillStyle='rgba(255,255,255,.25)'; ctx.fill();
+  ctx.beginPath(); ctx.arc(px,py,6,0,Math.PI*2); ctx.fillStyle='#ffffff'; ctx.fill();
+  ctx.lineWidth=2.6; ctx.strokeStyle='#10233a'; ctx.stroke();
+
+  ctx.restore();
+
+  /* ── نتیجهٔ BMI زیر نمودار (دقیقاً مطابق نمای زنده) ── */
+  const resY = padding + titleAreaH + drawH;
+  const resCenterY = resY + resultAreaH/2;
+  const bmiValTxt = toFa(bmi.toFixed(1));
+  const catFullTxt = cat.icon+' '+cat.name;
+  ctx.font = "700 11px Vazirmatn, Tahoma, Arial, sans-serif";
+  const lblW = ctx.measureText(catFullTxt).width;
+  ctx.font = "800 22px Vazirmatn, Tahoma, Arial, sans-serif";
+  const valW = ctx.measureText(bmiValTxt).width;
+  const resBadgeW = Math.max(valW, lblW) + 44;
+  const resBadgeH = 62;
+  const resBadgeX = totalW/2 - resBadgeW/2;
+  const resBadgeY = resCenterY - resBadgeH/2;
+
+  roundRectPath(ctx, resBadgeX, resBadgeY, resBadgeW, resBadgeH, 18);
+  ctx.fillStyle = 'rgba(255,255,255,.07)'; ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,.14)'; ctx.lineWidth = 1; ctx.stroke();
+
+  ctx.textAlign='center'; ctx.direction='ltr'; ctx.textBaseline='alphabetic';
+  ctx.font = "800 22px Vazirmatn, Tahoma, Arial, sans-serif";
+  ctx.fillStyle = cat.color;
+  ctx.fillText(bmiValTxt, totalW/2, resBadgeY+27);
+  ctx.direction='rtl'; ctx.font = "700 11px Vazirmatn, Tahoma, Arial, sans-serif";
+  ctx.fillStyle = t2;
+  ctx.fillText(catFullTxt, totalW/2, resBadgeY+47);
+
+  return canvas;
+}
+
+function captureBmiChart(){
+  const wrap = id('bmiChartWrap');
+  if(!wrap || !currentBmiEntry) return;
+  let canvas;
+  try{
+    canvas = drawBmiChartCanvas(currentBmiEntry, wrap);
+  }catch(e){
+    showToast('در این محیط امکان ذخیرهٔ تصویر نمودار وجود ندارد');
+    return;
+  }
+  const dataUrl = (()=>{ try{ return canvas.toDataURL('image/png'); }catch(e){ return null; } })();
+  lastShotFile = null;
+  try{
+    canvas.toBlob(blob=>{
+      if(blob) lastShotFile = new File([blob], 'Weight-bmi-' + Date.now() + '.png', {type:'image/png'});
+    }, 'image/png');
+  }catch(e){ /* نادیده گرفته می‌شود */ }
+  showShotModal(canvas, dataUrl);
+}
+
 /* ═══════════════ تاریخچه ═══════════════ */
 let histOpen=false;
 function toggleHistory(){
@@ -1116,6 +1607,7 @@ function renderHistory(){
         <div class="d2">${weekdayOf(e.jy,e.jm,e.jd)} · ${toFa(jp2(e.h))}:${toFa(jp2(e.m))}</div>
       </div>
       ${diffHtml}
+      <button class="hist-bmi-btn" onclick="openBmiModal('${e.key}')">BMI</button>
       <div class="hi-val">${toFa(e.weight.toFixed(1))}</div>
     </div>`;
   }).join('');
@@ -1142,7 +1634,9 @@ function setTheme(theme){
 function renderAll(){ renderStats(); renderChart(); if(histOpen) renderHistory(); }
 async function init(){
   setTheme(loadSavedTheme());
+  loadLastWeightHeight();
   renderWeight();
+  renderHeight();
   refreshRowLabels();
   // مقدار پیش‌فرض بازه دلخواه: هفت روز اخیر (کاربر می‌تواند بعداً تغییر دهد)
   const t = todayJalali();
