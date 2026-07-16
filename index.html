@@ -58,18 +58,21 @@ body{
 .sec-lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--t2);margin-bottom:10px;font-weight:700;padding-right:2px}
 .card{background:var(--glass);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);border:1px solid var(--gborder);border-radius:var(--r);overflow:hidden;margin-bottom:12px;box-shadow:0 4px 24px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.07)}
 
-/* ── وزن ورودی ── */
-.weight-hero{margin:0;padding:21px 16px 17px;text-align:center;position:relative}
-.weight-display{display:flex;align-items:baseline;justify-content:center;gap:6px;direction:ltr}
-.weight-val{font-size:38px;font-weight:800;background:var(--accent-grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:var(--numf);line-height:1;letter-spacing:-1px}
-.weight-unit{font-size:18px;color:var(--t2);font-weight:600}
-.weight-slider-row{display:flex;align-items:center;gap:12px;margin-top:15px;padding:0 6px}
-.weight-step-btn{width:37px;height:37px;border-radius:50%;background:var(--glass2);border:1px solid var(--gborder2);color:var(--blue);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;-webkit-appearance:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.12);transition:transform .15s,background .2s}
-.weight-step-btn:active{transform:scale(.88);background:color-mix(in srgb, var(--blue) 18%, transparent)}
-input[type=range].weight-slider{-webkit-appearance:none;appearance:none;flex:1;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--cyan));outline:none;cursor:pointer}
-input[type=range].weight-slider::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid var(--blue);box-shadow:0 2px 10px rgba(0,0,0,.35);cursor:pointer}
-input[type=range].weight-slider::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid var(--blue);box-shadow:0 2px 10px rgba(0,0,0,.35);cursor:pointer;border:4px solid var(--blue)}
-.weight-minmax{display:flex;justify-content:space-between;font-size:11px;color:var(--t3);font-family:var(--numf);margin-top:3px;padding:0 6px}
+/* ── انتخابگر دایره‌ای (Radial Dial) وزن/قد — دقیقاً به سبک ویدیو: کشیدن دور یک حلقه ── */
+.dial-row{display:flex;align-items:flex-start;justify-content:center;padding:22px 16px 20px;gap:26px}
+.dial-col{display:flex;flex-direction:column;align-items:center;flex:1;max-width:170px;min-width:0}
+.dial-label{font-size:12.5px;font-weight:700;color:var(--t2);margin-bottom:12px;display:flex;align-items:baseline;gap:5px;white-space:nowrap}
+.dial-label b{color:var(--t1);font-size:13px}
+.dial-wrap{position:relative;width:100%;aspect-ratio:1/1;touch-action:none;overscroll-behavior:none;user-select:none;-webkit-user-select:none;cursor:grab;border-radius:50%;box-shadow:0 0 0 6px var(--glass), 0 10px 26px rgba(0,0,0,.16);-webkit-tap-highlight-color:transparent}
+.dial-wrap:active{cursor:grabbing}
+.dial-svg{width:100%;height:100%;display:block;position:relative;z-index:1;overflow:visible}
+.dial-disc-bg{fill:url(#dialDiscGrad);stroke:rgba(255,255,255,.10);stroke-width:1.5}
+.dial-track{fill:none;stroke:rgba(255,255,255,.18);stroke-width:16.8}
+.dial-arc{fill:none;stroke:var(--blue);stroke-width:16.8;stroke-linecap:round;transform-origin:100px 100px;transform:rotate(-90deg);filter:drop-shadow(0 0 7px color-mix(in srgb, var(--blue) 65%, transparent));transition:stroke .3s ease}
+.dial-handle{fill:#fff;stroke:var(--blue);stroke-width:4;filter:drop-shadow(0 2px 6px rgba(0,0,0,.45));transition:stroke .3s ease}
+.dial-center{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;gap:3px}
+.dial-val{font-family:var(--numf);font-size:22px;font-weight:800;color:#fff;direction:ltr;line-height:1;font-variant-numeric:tabular-nums;text-shadow:0 1px 4px rgba(0,0,0,.35)}
+.dial-unit{font-size:10.5px;color:rgba(215,232,255,.75);font-weight:700;letter-spacing:.2px}
 
 /* ── ردیف انتخاب (تاریخ/ساعت) ── */
 .ir{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--gborder);cursor:pointer}
@@ -208,6 +211,16 @@ input[type=range].weight-slider::-moz-range-thumb{width:26px;height:26px;border-
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="dialDiscGrad" cx="32%" cy="26%" r="85%">
+      <stop offset="0%" stop-color="#3d86c9"></stop>
+      <stop offset="45%" stop-color="#235d90"></stop>
+      <stop offset="100%" stop-color="#123449"></stop>
+    </radialGradient>
+  </defs>
+</svg>
+
 
 <div class="hdr">
   <div class="hdr-left">
@@ -229,28 +242,35 @@ input[type=range].weight-slider::-moz-range-thumb{width:26px;height:26px;border-
 
   <div class="sec">
     <div class="card">
-      <div class="weight-hero">
-        <div class="weight-display"><span class="weight-val" id="weightVal">70.0</span><span class="weight-unit">کیلوگرم</span></div>
-        <div class="weight-slider-row">
-          <button class="weight-step-btn" onclick="stepWeight(-0.1)" aria-label="کم کردن">−</button>
-          <input type="range" class="weight-slider" id="weightSlider" min="20" max="200" step="0.1" value="70">
-          <button class="weight-step-btn" onclick="stepWeight(0.1)" aria-label="اضافه کردن">+</button>
+      <div class="dial-row">
+        <div class="dial-col">
+          <div class="dial-wrap" id="weightDial">
+            <svg viewBox="0 0 200 200" class="dial-svg">
+              <circle class="dial-disc-bg" cx="100" cy="100" r="94"></circle>
+              <circle class="dial-track" cx="100" cy="100" r="78"></circle>
+              <circle class="dial-arc" id="weightArc" cx="100" cy="100" r="78"></circle>
+              <circle class="dial-handle" id="weightHandle" cx="100" cy="22" r="9"></circle>
+            </svg>
+            <div class="dial-center">
+              <span class="dial-val" id="weightVal">۷۰.۰</span>
+              <span class="dial-unit">کیلوگرم</span>
+            </div>
+          </div>
         </div>
-        <div class="weight-minmax"><span>۲۰ کیلوگرم</span><span>۲۰۰ کیلوگرم</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec" style="padding-top:5px">
-    <div class="card">
-      <div class="weight-hero">
-        <div class="weight-display"><span class="weight-val" id="heightVal">170</span><span class="weight-unit">سانتی‌متر</span></div>
-        <div class="weight-slider-row">
-          <button class="weight-step-btn" onclick="stepHeight(-1)" aria-label="کم کردن">−</button>
-          <input type="range" class="weight-slider" id="heightSlider" min="100" max="200" step="1" value="170">
-          <button class="weight-step-btn" onclick="stepHeight(1)" aria-label="اضافه کردن">+</button>
+        <div class="dial-col">
+          <div class="dial-wrap" id="heightDial">
+            <svg viewBox="0 0 200 200" class="dial-svg">
+              <circle class="dial-disc-bg" cx="100" cy="100" r="94"></circle>
+              <circle class="dial-track" cx="100" cy="100" r="78"></circle>
+              <circle class="dial-arc" id="heightArc" cx="100" cy="100" r="78"></circle>
+              <circle class="dial-handle" id="heightHandle" cx="100" cy="22" r="9"></circle>
+            </svg>
+            <div class="dial-center">
+              <span class="dial-val" id="heightVal">۱۷۰</span>
+              <span class="dial-unit">سانتی‌متر</span>
+            </div>
+          </div>
         </div>
-        <div class="weight-minmax"><span>۱۰۰ سانتی‌متر</span><span>۲۰۰ سانتی‌متر</span></div>
       </div>
     </div>
   </div>
@@ -569,25 +589,109 @@ async function persistEntries(){
   return false;
 }
 
-/* ═══════════════ وزن: اسلایدر ═══════════════ */
+/* ═══════════════ وزن/قد: انتخابگر دایره‌ای (Radial Dial) — دقیقاً به سبک ویدیو ═══════════════
+   منطق: کشیدن انگشت/موس دور حلقه، مقدار را کم/زیاد می‌کند. برای جلوگیری از پرش در نقطهٔ
+   بالای دایره (جایی که ۰ درجه به ۳۶۰ درجه می‌رسد)، به‌جای نگاشت مطلقِ زاویه به مقدار، از
+   اختلاف زاویهٔ نسبی بین دو رویداد پیاپی استفاده می‌شود؛ این‌طور هیچ‌گاه مقدار به‌طور ناگهانی
+   جابه‌جا نمی‌شود، حتی اگر کاربر از نقطهٔ اتصال ۰/۳۶۰ عبور کند. */
 function saveLastWeight(){ try{ localStorage.setItem('wtrack-last-weight', String(curWeight)); }catch(e){} }
-function renderWeight(){ id('weightVal').textContent = toFa(curWeight.toFixed(1)); id('weightSlider').value = curWeight; saveLastWeight(); }
-function stepWeight(d){ curWeight = Math.min(200, Math.max(20, +(curWeight+d).toFixed(1))); renderWeight(); }
-id('weightSlider').addEventListener('input', e=>{ curWeight = +(+e.target.value).toFixed(1); renderWeight(); });
-
-/* ═══════════════ قد: اسلایدر ═══════════════
-   قد برخلاف وزن تقریباً برای هر کاربری ثابت می‌ماند، پس آخرین مقدار انتخاب‌شده (هم قد و هم وزن)
-   در localStorage ذخیره می‌شود تا با هر بار باز کردن برنامه، اسلایدرها روی آخرین تنظیم بمانند. */
 function saveLastHeight(){ try{ localStorage.setItem('wtrack-last-height', String(curHeight)); }catch(e){} }
-function renderHeight(){ id('heightVal').textContent = toFa(Math.round(curHeight)); id('heightSlider').value = curHeight; saveLastHeight(); }
-function stepHeight(d){ curHeight = Math.min(200, Math.max(100, Math.round(curHeight+d))); renderHeight(); }
-id('heightSlider').addEventListener('input', e=>{ curHeight = Math.round(+e.target.value); renderHeight(); });
+
+const DIAL_R = 78, DIAL_CX = 100, DIAL_CY = 100, DIAL_CIRC = 2*Math.PI*DIAL_R;
+
+function initDial(wrapId, arcId, handleId, valId, opts){
+  const wrap = id(wrapId), arc = id(arcId), handle = id(handleId), valEl = id(valId);
+  if(!wrap || !arc || !handle || !valEl) return; // ایمنی در برابر عدم وجود عنصر
+  const { min, max, step, decimals, get, set, onSettle } = opts;
+  arc.style.strokeDasharray = String(DIAL_CIRC);
+
+  function clamp(v){ return Math.max(min, Math.min(max, v)); }
+  function render(v){
+    const f = (clamp(v)-min)/(max-min);
+    arc.style.strokeDashoffset = String(DIAL_CIRC*(1-f));
+    const rad = (f*360 - 90) * Math.PI/180;
+    handle.setAttribute('cx', (DIAL_CX + DIAL_R*Math.cos(rad)).toFixed(2));
+    handle.setAttribute('cy', (DIAL_CY + DIAL_R*Math.sin(rad)).toFixed(2));
+    valEl.textContent = toFa(v.toFixed(decimals));
+  }
+  render(get());
+
+  let dragging = false, lastAngle = 0, activePointerId = null;
+  function angleFromEvent(e){
+    const rect = wrap.getBoundingClientRect();
+    const cx = rect.left + rect.width/2, cy = rect.top + rect.height/2;
+    return Math.atan2(e.clientY - cy, e.clientX - cx) * 180/Math.PI;
+  }
+  function onDown(e){
+    if(dragging) return; // از شروع هم‌زمان چند لمس جلوگیری می‌کند
+    dragging = true;
+    activePointerId = e.pointerId;
+    try{ wrap.setPointerCapture(e.pointerId); }catch(_){}
+    lastAngle = angleFromEvent(e);
+    e.preventDefault();
+  }
+  function onMove(e){
+    if(!dragging || e.pointerId !== activePointerId) return;
+    const cur = angleFromEvent(e);
+    let delta = cur - lastAngle;
+    if(delta > 180) delta -= 360;
+    if(delta < -180) delta += 360;
+    lastAngle = cur;
+    let v = get() + delta/360*(max-min);
+    v = clamp(v);
+    v = +(Math.round(v/step)*step).toFixed(decimals);
+    set(v);
+    render(v);
+    e.preventDefault();
+  }
+  function endDrag(e){
+    if(!dragging || (e && e.pointerId !== activePointerId)) return;
+    dragging = false;
+    activePointerId = null;
+    try{ if(e) wrap.releasePointerCapture(e.pointerId); }catch(_){}
+    if(onSettle) onSettle(get());
+  }
+  wrap.addEventListener('pointerdown', onDown, {passive:false});
+  wrap.addEventListener('pointermove', onMove, {passive:false});
+  wrap.addEventListener('pointerup', endDrag, {passive:false});
+  wrap.addEventListener('pointercancel', endDrag, {passive:false});
+  // ── جلوگیری قطعی از اسکرول صفحه هنگام کشیدن روی موبایل ──
+  // CSS تنها (touch-action:none) در همهٔ مرورگرها/وب‌ویوها به‌طور کامل رعایت نمی‌شود،
+  // پس همزمان با preventDefault در سطح رویدادهای لمسی خام هم جلوی اسکرول گرفته می‌شود؛
+  // این کار حتی اگر انگشت هنگام چرخش کمی از محدودهٔ دایره خارج شود هم اسکرول صفحه را متوقف نگه می‌دارد.
+  wrap.addEventListener('touchstart', e=>{ e.preventDefault(); }, {passive:false});
+  wrap.addEventListener('touchmove', e=>{ e.preventDefault(); }, {passive:false});
+  document.addEventListener('touchmove', e=>{ if(dragging) e.preventDefault(); }, {passive:false});
+  // اگر پنجره فوکوس را از دست بدهد وسط کشیدن (مثلاً تعویض تب)، کشیدن را با خیال راحت متوقف کن
+  window.addEventListener('blur', ()=>{ if(dragging){ dragging=false; activePointerId=null; if(onSettle) onSettle(get()); } });
+
+  return { render };
+}
+
+const WEIGHT_MIN = 20, WEIGHT_MAX = 200; // با گام ۰٫۱ کیلوگرم
+const HEIGHT_MIN = 40, HEIGHT_MAX = 230; // با گام ۱ سانتی‌متر
+let weightDialCtl = null, heightDialCtl = null;
+
+function initWeightHeightDials(){
+  weightDialCtl = initDial('weightDial','weightArc','weightHandle','weightVal', {
+    min: WEIGHT_MIN, max: WEIGHT_MAX, step: 0.1, decimals: 1,
+    get: ()=>curWeight,
+    set: v=>{ curWeight = v; },
+    onSettle: ()=> saveLastWeight()
+  });
+  heightDialCtl = initDial('heightDial','heightArc','heightHandle','heightVal', {
+    min: HEIGHT_MIN, max: HEIGHT_MAX, step: 1, decimals: 0,
+    get: ()=>curHeight,
+    set: v=>{ curHeight = v; },
+    onSettle: ()=> saveLastHeight()
+  });
+}
 function loadLastWeightHeight(){
   try{
     const lw = localStorage.getItem('wtrack-last-weight');
     if(lw!==null){ const n=+lw; if(!isNaN(n) && n>=20 && n<=200) curWeight = n; }
     const lh = localStorage.getItem('wtrack-last-height');
-    if(lh!==null){ const n=+lh; if(!isNaN(n) && n>=100 && n<=200) curHeight = n; }
+    if(lh!==null){ const n=+lh; if(!isNaN(n) && n>=40 && n<=230) curHeight = n; }
   }catch(e){}
 }
 
@@ -1635,8 +1739,7 @@ function renderAll(){ renderStats(); renderChart(); if(histOpen) renderHistory()
 async function init(){
   setTheme(loadSavedTheme());
   loadLastWeightHeight();
-  renderWeight();
-  renderHeight();
+  initWeightHeightDials();
   refreshRowLabels();
   // مقدار پیش‌فرض بازه دلخواه: هفت روز اخیر (کاربر می‌تواند بعداً تغییر دهد)
   const t = todayJalali();
