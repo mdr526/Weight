@@ -1,5 +1,5 @@
 /* Service Worker برای پیگیری وزن — کش کردن پوستهٔ برنامه برای کارکرد آفلاین و قابلیت نصب PWA */
-const CACHE_NAME = 'weight-tracker-v6';
+const CACHE_NAME = 'weight-tracker-v5';
 const APP_SHELL = [
   './index.html',
   './manifest.json',
